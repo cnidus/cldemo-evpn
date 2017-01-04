@@ -42,6 +42,8 @@ sed -i 's/bgpd=no/bgpd=yes/g' /etc/quagga/daemons
 systemctl enable quagga.service
 systemctl start quagga.service
 
+echo grub-pc grub-pc/install_devices select /dev/sda | sudo debconf-set-selections
+
 #Upgrading Quagga for EVPN
 sed -i 's/#deb     http:\/\/repo3.cumulusnetworks.com\/repo CumulusLinux-3-early-access cumulus/deb     http:\/\/repo3.cumulusnetworks.com\/repo CumulusLinux-3-early-access cumulus/' /etc/apt/sources.list
 sed -i 's/#deb-src http:\/\/repo3.cumulusnetworks.com\/repo CumulusLinux-3-early-access cumulus/deb-src http:\/\/repo3.cumulusnetworks.com\/repo CumulusLinux-3-early-access cumulus/' /etc/apt/sources.list
